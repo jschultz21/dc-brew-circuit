@@ -4,6 +4,7 @@ class CreateBreweries < ActiveRecord::Migration
       t.string :name
       t.string :photo_url
       t.string :address
+      t.string :logo_img
 
       t.timestamps null: false
     end

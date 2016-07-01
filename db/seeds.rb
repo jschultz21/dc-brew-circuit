@@ -13,6 +13,7 @@ beer_data.each_pair do |brewery_name, beers|
   current_brewery = Brewery.create!({
     name:       info[:name],
     photo_url:  info[:photo_url],
+    logo_img:    info[:logo_img],
     address:    info[:address],
     })
 
@@ -23,7 +24,6 @@ beer_data.each_pair do |brewery_name, beers|
         photo_url:  beer[:photo_url],
         abv:        beer[:abv],
         brewery:    current_brewery
-
         })
       end
     end
