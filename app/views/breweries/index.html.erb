@@ -1,9 +1,13 @@
-<ul>
-<% @breweries.each do |brewery| %>
-
-  <li>
+<div class="breweries">
+  <% @breweries.each do |brewery| %>
+  <div class = "brewery">
     <a href="/breweries/<%= brewery.id %>">
-    <%= brewery.name %>
-  </a>
-  </li>
-<% end %>
+      <%= image_tag(brewery.photo_url, class:"photo") %>
+      <br>
+      <%= brewery.name %>
+    </a>
+  </div>
+  <% end %>
+</div>
+
+<a href = "/"> home </a>

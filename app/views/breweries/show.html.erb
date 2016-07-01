@@ -1,8 +1,15 @@
+<h2>
+
+<h3>Beers </h3>
+
 <ul>
   <% @brewery.beers.each do |beer| %>
   <li>
     <%=beer.name%>
   </li>
+  <% end %>
+</ul>
 
-    <% end %>
-    </ul>
+<h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery)%></h4>
+<br>
+<%= link_to "back to breweries", breweries_path %>
