@@ -7,13 +7,43 @@ class BeersController < ApplicationController
 
   def new
     @brewery = Brewery.find(params[:brewery_id])
-    @beer = Beer.create!(beer_params)
+    @beer = Beer.new
   end
 
-end
+  def show
+    @brewery = Brewery.find(params[:brewery_id])
 
+    @beer = Beer.find(params[:id])
+  end
 
+  def create
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = @brewery.beers.create(beer_params)
+    redirect_to @brewery
+  end
 
-private
-def beer_params
+  def edit
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = @brewery.beers.find(params[:id])
+  end
+
+  def update
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = @brewery.beers.find(params[:id])
+    @beer.update(beer_params)
+    redirect_to @brewery
+  end
+
+  def destroy
+    @brewery = Brewery.find(params[:brewery_id])
+
+    @beer = Beer.find(params[:id])
+    @beer.destroy
+    redirect_to @brewery
+  end
+  private
+  def beer_params
+    params.require(:beer).permit(:name, :style, :abv, :photo_url, :brewery_id)
+
+  end
 end

@@ -3,9 +3,15 @@
 <h3>Beers </h3>
 
 <ul>
-  <% @brewery.beers.each do |beer| %>
+  <% @brewery.beers.each do |beer| %> <%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <%= link_to "edit", edit_brewery_beer_path(@brewery, beer)%> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'} %>
   <li>
-    <%=beer.name%>
+
+  <ul>
+    <li> Style: <%= beer.style %> </li>
+    <li>  ABV: <%= beer.abv %></li>
+  </ul>
+
+
   </li>
   <% end %>
 </ul>

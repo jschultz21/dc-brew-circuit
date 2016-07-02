@@ -26,7 +26,7 @@ def get_brewery_data
       address: '5788 2nd Street NE, Washington, DC 20011'
     },
     "atlas" =>{
-      name: 'DC Brau',
+      name: 'Atlas',
       photo_url: ' ',
       logo_img: '',
       address: '2052 West Virginia Avenue Northeast #102, Washington, DC 20002'
