@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/new'
 resources :users
-resource :sessions
+resource :session
   resources :breweries do
     resources :beers do
       resources :reviews

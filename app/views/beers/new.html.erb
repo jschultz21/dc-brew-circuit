@@ -1,3 +1,7 @@
 <h2> Add a new beer to <%=@brewery.name%>!</h2>
 
 <%= render 'form' %>
+
+<% flash.each do |type, message| %>
+<p class="<%= type %>"><%= message %></p>
+<% end %>

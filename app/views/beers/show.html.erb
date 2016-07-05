@@ -1,28 +1,30 @@
 <h2> <%= @beer.name %> </h2>
+<h3> <%=@beer.style %> </h3>
 <br>
-
 <h3> Reviews </h3>
 
-<ul>
-<% @beer.reviews.each do |review| %>
-<li>
-author: <%= review.author%><br>
-body: <%= review.body%>
-</li>
-<% end%>
-</ul>
 
+<% if @beer.reviews.any? %>
+  <% @beer.reviews.each do |review| %>
+  <%= review.created_at%>
+  <%= review.author %>
+  <%= review.body%>
+
+  <% end%>
+<% else %>
+  <p> No Reviews Yet!</p>
+<% end %>
 
 
 <%= form_for ([@brewery, @beer, @review]) do |f| %>
 
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+<%= f.label :author %>
+<%= f.text_field :author %>
 
-  <%= f.label :body %>
-  <%= f.text_field :body %>
+<%= f.label :body %>
+<%= f.text_field :body %>
 
-  <%= f.submit %>
+<%= f.submit %>
 
 
 <% end %>

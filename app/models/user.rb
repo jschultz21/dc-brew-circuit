@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :reviews
+  has_many :beers
   attr_accessor :name, :email
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :password, presence: true
+  validates :email, uniqueness: :true, presence: true
 
 end

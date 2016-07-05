@@ -18,17 +18,25 @@ class BeersController < ApplicationController
   end
 
   def create
+    redirect_to root_path unless @current_user
     @brewery = Brewery.find(params[:brewery_id])
-    @beer = @brewery.beers.create!(beer_params)
-    redirect_to @brewery
+    @beer = @brewery.beers.create(beer_params)
+    if @beer.save
+      redirect_to @brewery
+    else
+      flash[:alert] = "Please include the beer's name and style"
+      redirect_to new_brewery_beer_path
+    end
   end
 
   def edit
+    redirect_to root_path unless @current_user
     @brewery = Brewery.find(params[:brewery_id])
     @beer = @brewery.beers.find(params[:id])
   end
 
   def update
+    redirect_to root_path unless @current_user
     @brewery = Brewery.find(params[:brewery_id])
     @beer = @brewery.beers.find(params[:id])
     @beer.update(beer_params)
@@ -36,8 +44,8 @@ class BeersController < ApplicationController
   end
 
   def destroy
+    redirect_to root_path unless @current_user
     @brewery = Brewery.find(params[:brewery_id])
-
     @beer = Beer.find(params[:id])
     @beer.destroy
     redirect_to @brewery

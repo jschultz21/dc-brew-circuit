@@ -3,7 +3,7 @@
 <h3>Beers </h3>
 
 <ul>
-  <% @brewery.beers.each do |beer| %> <%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <%= link_to "edit", edit_brewery_beer_path(@brewery, beer)%> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'} %>
+  <% @brewery.beers.each do |beer| %> <%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <%= link_to "edit", edit_brewery_beer_path(@brewery, beer)if @current_user %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'} if @current_user %>
   <li>
 
   <ul>
@@ -16,6 +16,6 @@
   <% end %>
 </ul>
 
-<h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery)%></h4>
+<h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery) if @current_user%></h4>
 <br>
 <%= link_to "back to breweries", breweries_path %>
