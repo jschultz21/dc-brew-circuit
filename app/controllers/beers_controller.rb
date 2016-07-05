@@ -1,15 +1,10 @@
 class BeersController < ApplicationController
 
-  def show
-    @brewery = Brewery.find(params[:id])
-    @beers = @brewery.beers.all
-  end
 
   def show
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.find(params[:id])
-    @review = @beer.reviews.new
-
+    @review = Review.new    
   end
 
   def new
@@ -40,8 +35,14 @@ class BeersController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @beer = @brewery.beers.find(params[:id])
     @beer.update(beer_params)
-    redirect_to @brewery
+    if @beer.save
+      redirect_to @brewery
+    else
+      flash[:alert] = "Please include the beer's name and style"
+      redirect_to edit_brewery_beer_path
+    end
   end
+
 
   def destroy
     redirect_to root_path unless @current_user

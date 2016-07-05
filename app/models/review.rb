@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  validates :author, presence: :true
+  belongs_to :user
   validates :body, presence: :true
   belongs_to :beer
   belongs_to :user

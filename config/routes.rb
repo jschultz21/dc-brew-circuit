@@ -5,9 +5,8 @@ resource :session
   resources :breweries do
     resources :beers do
       resources :reviews
+    end
   end
-
-end
 # get 'home/index'
 
 # The priority is based upon order of creation: first created -> highest priority.

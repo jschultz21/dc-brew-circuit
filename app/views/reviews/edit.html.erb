@@ -1,0 +1,16 @@
+<h2> Edit Your Review Here:</h2>
+
+
+
+
+<%= form_for [@brewery, @beer, @review] do |f| %>
+
+  <%= f.label :Author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :Body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+
+<% end %>
