@@ -5,20 +5,21 @@ class BeersController < ApplicationController
     @beers = @brewery.beers.all
   end
 
+  def show
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = Beer.find(params[:id])
+    @review = @beer.reviews.new
+
+  end
+
   def new
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.new
   end
 
-  def show
-    @brewery = Brewery.find(params[:brewery_id])
-
-    @beer = Beer.find(params[:id])
-  end
-
   def create
     @brewery = Brewery.find(params[:brewery_id])
-    @beer = @brewery.beers.create(beer_params)
+    @beer = @brewery.beers.create!(beer_params)
     redirect_to @brewery
   end
 

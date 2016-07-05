@@ -1,8 +1,8 @@
 class CreateBeers < ActiveRecord::Migration
   def change
     create_table :beers do |t|
-      t.string :name
-      t.string :style
+      t.string :name, null: false
+      t.string :style, null: false
       t.string :photo_url
       t.string :abv
       t.integer :brewery_id

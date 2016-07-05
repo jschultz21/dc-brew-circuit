@@ -15,25 +15,25 @@ def get_brewery_data
     },
     "three_stars" =>{
       name: '3 Stars Brewing Company',
-      photo_url: ' ',
+      photo_url: 'http://beerbusterspodcast.com/wp-content/uploads/2015/05/Interior-1.jpg',
       logo_img: '',
       address: '6400 Chillum Place Northwest, Washington, DC 20011'
     },
     "hellbender" =>{
       name: 'Hellbender Brewing Company',
-      photo_url: ' ',
+      photo_url: 'http://www.beerquest1k.com/Assets/Hellbender_b.JPG',
       logo_img: ' ',
       address: '5788 2nd Street NE, Washington, DC 20011'
     },
     "atlas" =>{
       name: 'Atlas',
-      photo_url: ' ',
+      photo_url: 'http://www.atlasbrewworks.com/assets/uploads/Screen-Shot-2016-05-27-at-2.25.29-PM.png',
       logo_img: '',
       address: '2052 West Virginia Avenue Northeast #102, Washington, DC 20002'
     },
     "bardo" =>{
       name: 'Bardo Brewpub',
-      photo_url: ' ',
+      photo_url: 'https://farm6.staticflickr.com/5579/14825171624_cac669e828.jpg',
       logo_img: '',
       address: '1200 Bladensburg Road Northeast, Washington, DC 20002'
     },

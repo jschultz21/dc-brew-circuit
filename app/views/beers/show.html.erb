@@ -3,5 +3,26 @@
 
 <h3> Reviews </h3>
 
-<%= @beer.reviews.each do |review| %>
+<ul>
+<% @beer.reviews.each do |review| %>
+<li>
+author: <%= review.author%><br>
+body: <%= review.body%>
+</li>
 <% end%>
+</ul>
+
+
+
+<%= form_for ([@brewery, @beer, @review]) do |f| %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+
+
+<% end %>
