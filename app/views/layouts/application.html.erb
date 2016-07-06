@@ -10,10 +10,6 @@
 </head>
 <body>
 
-<p class = 'welcome'>  <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%end%>
-</p>
   <nav class="main-nav">
     <ul>
       <li><a href = "/"> Home </a></li>
@@ -28,14 +24,20 @@
     </ul>
   </nav>
 
-<p class ="right_align">
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-</p>
+  <div class ="right_align">
+    <p class = 'welcome'>  <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%end%>
+    </p>
+    <p>
+      <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </p>
+  </div>
   <div id = "banner"><a href = "/"><h1>DC Brew Circuit</h1></a></div>
 
 

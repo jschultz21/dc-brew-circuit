@@ -14,7 +14,7 @@ def create
          session[:user_id] = @user.id
          redirect_to root_path
        else
-         flash[:alert] =  "Wrong password!"
+        #  flash[:alert] =  "Wrong password!"
          redirect_to new_session_path
        end
      else

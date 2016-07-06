@@ -31,8 +31,9 @@ p {
   font-size:20px;
 }
 
-.align_right {
+.right_align {
   text-align: right;
+  float: right;
 }
 
 a{
