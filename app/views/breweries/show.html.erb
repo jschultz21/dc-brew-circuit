@@ -1,21 +1,18 @@
-<h2>
+<h2> <%=@brewery.name%></h2>
+<%= image_tag(@brewery.photo_url, class: "photo") %>
 
-<h3>Beers </h3>
-
+<h2> Beers by <%=@brewery.name%>  </h2>
 <ul>
-  <% @brewery.beers.each do |beer| %> <%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <%= link_to "edit", edit_brewery_beer_path(@brewery, beer)if @current_user %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'} if @current_user %>
-  <li>
+  <% @brewery.beers.each do |beer| %>
 
-  <ul>
-    <li> Style: <%= beer.style %> </li>
-    <li>  ABV: <%= beer.abv %></li>
+  <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %><h3>
+    <ul>
+      <li> <%= beer.style %> </li>
+      <li>  ABV: <%= beer.abv %></li>
+      <li> <% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%></li>
+    </ul>
+
+    <% end %>
   </ul>
 
-
-  </li>
-  <% end %>
-</ul>
-
-<h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery) if @current_user%></h4>
-<br>
-<%= link_to "back to breweries", breweries_path %>
+  <h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery) if current_user%></h4>

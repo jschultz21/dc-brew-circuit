@@ -1,3 +1,18 @@
-// Place all the styles related to the breweries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.photo{
+  height: 250px;
+  float:right;
+}
+
+.breweries{
+  padding:0 85px;
+}
+
+.breweries li{
+color: darkslategray;
+font-size:25px;
+}
+
+h2 {
+  display: block;
+  padding-left: 45px;
+}

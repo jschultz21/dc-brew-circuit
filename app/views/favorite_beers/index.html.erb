@@ -1,0 +1,9 @@
+<h2> Favorited Beers </h2>
+
+<ul class = "fav_beers"><% @beers.each do |beer| %>
+    <li><div class = "fav_beer">
+      <li>  <a href="/breweries/<%= beer.brewery.id %>/beers/<%= beer.id %>"> <%= beer.name %> - <%=beer.brewery.name%></li>
+        </a>
+      </div></li>
+      <%end%>
+    </ul>

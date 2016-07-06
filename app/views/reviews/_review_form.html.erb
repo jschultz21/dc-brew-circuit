@@ -1,0 +1,11 @@
+
+<h3> Write a Review of the <%=@beer.name%>:</h3>
+<%= form_for [@brewery, @beer, @review] do |f| %>
+
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<textarea name="review[body]" cols="80" rows="10"><%= @review.body %></textarea>
+<br>
+<%= f.submit %>
+
+<% end %>

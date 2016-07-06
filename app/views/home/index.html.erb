@@ -1,4 +1,13 @@
 
-<a href="/breweries">Breweries</a>
+<p class="intro">Welcome to DC Brew Circuit, where bicycle and beer enthusiasts convene harmoniously. We offer DMV cyclists and beer lovers customized bike tours to a wide variety of local breweries. Get ready to  sample unique, local beers along our way while exploring some lesser traveled areas of the city! Explore our partner breweries and add them to your individual route, and favorite the beers you taste along your way to your favorites.  </p>
 
-<%=image_tag("https://bikefriendlyoc.files.wordpress.com/2015/01/drinkbeerridebikes_orange_front.jpg", class:"banner")%>
+<div class = "assorted_breweries">
+  <% @breweries.each do |brewery| %>
+  <div class = "random_brewery">
+    <a href="/breweries/<%= brewery.id %>">
+      <h2><%= brewery.name %></h2>
+      <%= image_tag(brewery.photo_url, class:"homepage_photo") %>
+    </a>
+  </div>
+  <%end%>
+</div>

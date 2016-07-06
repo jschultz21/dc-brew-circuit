@@ -5,24 +5,55 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <%= link_to "Sign Up", new_user_registration_path unless current_user %> |
-  <%= link_to "Sign In", new_user_session_path unless current_user  %> |
-  <%= link_to "Log Out", destroy_user_session_path, method: :delete if current_user  %>
-  <a href = "/"> Home </a>
 
+<header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href = "/"> Home </a></li>
+        <li><a href="/breweries">Breweries</a></li>
+        <% if user_signed_in? %>
+        <li>   <%= link_to "Favorites", favorite_beers_path  %> </li>
+        <li>   <%= link_to "Logout", destroy_user_session_path, method: :delete  %> </li>
+        <% else %>
+        <li>   <%= link_to "Sign up", new_user_registration_path %> </li>
+        <li>   <%= link_to "Login", new_user_session_path %> </li>
+        <% end %>
+      </ul>
+    </nav>
 
-    <a href = "/"><h1>DC Brew Circuit</h1></a>
+    <div class ="right_align">
+      <p class = 'welcome'>  <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.name %></strong>.</p>
+        <p class = "edit"><%= link_to 'Edit Profile', edit_user_registration_path%> </p>
+        <%end%>
 
+      <p><% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </p>
+    </div>
+</header>
+  <div id = "banner"><a href = "/"><h1>DC Brew Circuit</h1></a></div>
 
   <%= yield %>
 
-
-  <br>
-  FOOTER HERE<br>
+<footer>
+  <div class = "quotes">
+    <% @quotes.each do |quote| %>
+    <blockquote>
+      <%= quote.text %> <br>
+      -<%= quote.author %> <br>
+    </blockquote>
+    <%end%>
+  </div>
+</footer>
 
 </body>
 </html>

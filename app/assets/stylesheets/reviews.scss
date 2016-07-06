@@ -1,3 +1,18 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.timestamp {
+font-style: italic;
+font-size: 15px;
+}
+
+
+.review{
+  background-color: lightgrey;
+  margin: 15px 5px;
+  padding: 5px;
+  width: 600px;
+  border-radius:5px;
+}

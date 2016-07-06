@@ -1,34 +1,33 @@
+<h2> <%= @beer.name %> <br> style: <%= @beer.style %>  </h2>
 
+<p>
+  <%if current_user%>
+  <% unless current_user.favorite_beers.exists?(id: @beer.id) -%>
+  <%= link_to 'Add to favorites', favorite_beers_path(beer_id: @beer), method: :post %>
+  <% else %>
+  <%= link_to 'Remove from favorites', favorite_beer_path(@beer), method: :delete %>
+  <% end %>
+  <% end %>
+</p>
 
-<h2> <% @beer.name %> </h2>
-<h3> <% @beer.style %> </h3>
-
-<br>
-<h3> Reviews </h3>
-
+<h3> BEER REVIEWS </h3>
 
 <% if @beer.reviews.any? %>
-  <% @beer.reviews.each do |review| %>
-    <%= review.created_at%>
-    <%= review.user%>
-    <p><%= review.body%></p>
-   <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) if @current_user %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} if @current_user %>
+<% @beer.reviews.each do |review| %>
+<div class = "review">
+  <p class = "timestamp">By <%= review.user.name%> at <%= review.created_at%> </p>
+  <p><%= review.body%></p>
+  <% if review.user == current_user %>
+  <li> <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} %>  </div>
 
-
-  <% end%>
-<% else %>
+    <% end%>
+    <% end%>
+  <% else %>
   <p> No Reviews Yet!</p>
-<% end %>
+  <% end %>
 
-<% if @current_user %>
+  <% if current_user %>
 
-  <%= form_for ([@brewery, @beer, @review]) do |f| %>
+  <%= render 'reviews/review_form' %>
 
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-
-    <%= f.submit %>
-
-  <% end%>
-
-<% end %>
+  <% end %>
