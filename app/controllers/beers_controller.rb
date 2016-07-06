@@ -24,6 +24,21 @@ class BeersController < ApplicationController
     end
   end
 
+  def add_favorite
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = @brewery.beers.find(params[:id])
+    @beer.favorites.create!(user: current_user)
+    redirect_to brewery_beer_path(@brewery, @beer)
+  end
+
+  def remove_favorite
+    @brewery = Brewery.find(params[:brewery_id])
+    @beer = @brewery.beers.find(params[:id])
+    @beer.favorites.where(user: current_user).destroy_all
+    redirect_to brewery_beer_path(@brewery, @beer)
+  end
+
+
   def edit
 
     redirect_to (root_path notice: "You cannot edit this beer") and return unless @current_user ==@beer.user

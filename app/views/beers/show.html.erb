@@ -1,5 +1,14 @@
 <h2> <%= @beer.name %> <br> style: <%= @beer.style %>  </h2>
 
+<p>
+  <% if @beer.favorites.length > 0 %>
+<%= link_to "un-favorite", remove_favorite_brewery_beer_path(@brewery, @beer), method: :delete, class: "star" %>
+    <% else %>
+      <%= link_to "add to favorites", add_favorite_brewery_beer_path(@brewery, @beer), method: :post, class: "un-star" %>
+
+      <% end %>
+
+</p>
 
 <h3> Reviews </h3>
 
@@ -8,13 +17,13 @@
     Created at: <%= review.created_at%> by: <%= review.user.name%>
 
     <p><%= review.body%></p>
-   <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) if @current_user %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} if @current_user %>
+   <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) if current_user %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} if current_user %>
   <% end%>
 <% else %>
   <p> No Reviews Yet!</p>
 <% end %>
 
-<% if @current_user %>
+<% if current_user %>
 
   <%= render 'review_form' %>
 

@@ -6,8 +6,14 @@ resource :session
   resources :breweries do
     resources :beers do
       resources :reviews
+      member do
+        post 'add_favorite'
+        delete 'remove_favorite'
     end
   end
+end
+
+
 # get 'home/index'
 
 # The priority is based upon order of creation: first created -> highest priority.

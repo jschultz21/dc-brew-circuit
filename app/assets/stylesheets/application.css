@@ -61,6 +61,10 @@ h2 {
   color: black;
 }
 
+h3 {
+  font-size: 20px;
+}
+
 nav ul {
   display: flex;
   margin-bottom: -50px;
