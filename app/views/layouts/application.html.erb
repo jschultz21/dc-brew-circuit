@@ -6,23 +6,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <%= link_to "Sign Up", new_user_path unless @current_user %> |
-  <%= link_to "Sign In", new_session_path unless @current_user  %> |
-  <%= link_to "Log Out", session_path, method: :delete if @current_user  %>
-  <a href = "/"> Home </a>
 
-
-    <a href = "/"><h1>DC Brew Circuit</h1></a>
+  <nav class="main-nav">
+<ul>
+  <li><a href = "/"> Home </a></li>
+  <li><a href="/breweries">Breweries</a></li>
+  <li><%= link_to "Log Out", session_path, method: :delete if @current_user  %></li>
+  <li><%= link_to "Sign Up", new_user_path unless @current_user %></li>
+  <li><%= link_to "Sign In", new_session_path unless @current_user  %></li>
+</ul>
+</nav>
+  <div id = "banner"><a href = "/"><h1>DC Brew Circuit</h1></a></div>
 
 
   <%= yield %>
 
 
-  <br>
-  FOOTER HERE<br>
+
+  FOOTER HERE
 
 </body>
 </html>

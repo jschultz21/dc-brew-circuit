@@ -1,4 +1,22 @@
 
-<a href="/breweries">Breweries</a>
+<div class = "quotes">
+  <quote> <%= @quote.text %> </quote>
+</div>
 
-<%=image_tag("https://bikefriendlyoc.files.wordpress.com/2015/01/drinkbeerridebikes_orange_front.jpg", class:"banner")%>
+
+<div class = "assorted_breweries">
+
+  <% @breweries.each do |brewery| %>
+
+  <div class = "random_brewery">
+    <a href="/breweries/<%= brewery.id %>">
+      <h2><%= brewery.name %></h2>
+      <%= image_tag(brewery.photo_url, class:"homepage_photo") %>
+    </a>
+  </div>
+
+  <%end%>
+
+</div>
+
+<%#image_tag("https://bikefriendlyoc.files.wordpress.com/2015/01/drinkbeerridebikes_orange_front.jpg", class:"banner")%>

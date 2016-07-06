@@ -1,11 +1,7 @@
+<h2> <%= @beer.name %> <br> style: <%= @beer.style %>  </h2>
 
 
-<h2> <% @beer.name %> </h2>
-<h3> <% @beer.style %> </h3>
-
-<br>
 <h3> Reviews </h3>
-
 
 <% if @beer.reviews.any? %>
   <% @beer.reviews.each do |review| %>
@@ -13,8 +9,6 @@
     <%= review.user%>
     <p><%= review.body%></p>
    <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) if @current_user %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} if @current_user %>
-
-
   <% end%>
 <% else %>
   <p> No Reviews Yet!</p>
