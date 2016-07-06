@@ -7,7 +7,7 @@
     <ul>
       <li> <%= beer.style %> </li>
       <li>  ABV: <%= beer.abv %></li>
-      <li> <% if @current_user%><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%></li>
+      <li> <% if current_user%><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%></li>
     </ul>
 
     <% end %>

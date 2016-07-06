@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews
   has_many :beers
-  attr_accessor :name, :email
-  validates :password, presence: true
-  validates :email, uniqueness: :true, presence: true
-
+  # validates :password, presence: true
+  # validates :email, uniqueness: :true, presence: true
 end

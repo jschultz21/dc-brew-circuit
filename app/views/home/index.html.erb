@@ -1,8 +1,14 @@
 
-<div class = "quotes">
-  <quote> <%= @quote.text %> </quote>
-</div>
 
+<div class = "quotes">
+  <% @quotes.each do |quote| %>
+  <blockquote>
+    <%= quote.text %> <br>
+    -<%= quote.author %> <br>
+  </blockquote>
+  <%end%>
+
+</div>
 
 <div class = "assorted_breweries">
 
@@ -18,5 +24,3 @@
   <%end%>
 
 </div>
-
-<%#image_tag("https://bikefriendlyoc.files.wordpress.com/2015/01/drinkbeerridebikes_orange_front.jpg", class:"banner")%>

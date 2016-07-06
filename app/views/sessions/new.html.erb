@@ -1,10 +1,8 @@
-<h2>Sign in to DB Brew Circuit</h2>
-<%= form_for @user, url: session_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<h2>Sign in to DC Brew Circuit</h2>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+<%=render 'form'%>
 
-  <%= f.submit "Sign In" %>
+
+<% flash.each do |type, message| %>
+<p class="<%= type %>"><%= message %></p>
 <% end %>

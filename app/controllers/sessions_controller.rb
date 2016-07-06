@@ -6,27 +6,26 @@ end
 
 
 def create
-     input_username = params[:user][:username]
-     if User.exists?(username: input_username)
-       @user = User.find_by(username: input_username)
+     input_email = params[:user][:email]
+     if User.exists?(email: input_email)
+       @user = User.find_by(email: input_email)
        if @user.password === params[:user][:password]
-         flash[:notice] = "You're signed in!"
+         flash[:alert] = "You're signed in!"
          session[:user_id] = @user.id
          redirect_to root_path
        else
-         puts "Wrong password!"
+         flash[:alert] =  "Wrong password!"
          redirect_to new_session_path
        end
      else
-       flash[:notice] = "Nonexistant user, please sign up!"
+       flash[:alert] = "Nonexistant user, please sign up!"
        redirect_to new_session_path
      end
    end
 
    def destroy
      reset_session
-     flash[:notice] = "Thanks for coming!"
-     redirect_to :root
+     redirect_to root_path
    end
 
 end

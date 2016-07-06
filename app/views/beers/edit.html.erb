@@ -1,3 +1,7 @@
 <h2> Currently editing: <%=@beer.name%> </h2>
 
 <%= render 'form' %>
+
+<% flash.each do |type, message| %>
+<p class="<%= type %>"><%= message %></p>
+<% end %>

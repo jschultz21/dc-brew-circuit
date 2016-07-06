@@ -1,18 +1,7 @@
 <h2>Sign up for DC Brew Circuit</h2>
 
-<%= form_for @user do |f| %>
+<%= render 'form'%>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :email %>
-<%= f.text_field :email %>
-
-<%= f.label :username %>
-<%= f.text_field :username %>
-
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.submit "Submit" %>
+<% flash.each do |type, message| %>
+<p class="<%= type %>"><%= message %></p>
 <% end %>

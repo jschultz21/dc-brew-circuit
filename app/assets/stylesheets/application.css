@@ -31,6 +31,36 @@ p {
   font-size:20px;
 }
 
+.align_right {
+  text-align: right;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:visited {
+  color: darkblue;
+}
+
+h1 {
+  font-family: Pacifico, cursive;
+  font-size: 130px;
+  line-height: 270px;
+  text-align: center;
+  color: darkseagreen;
+  text-shadow: 1px 2px black;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 25px;
+  text-transform:uppercase;
+  font-weight: bold;
+  letter-spacing:3px;
+  color: black;
+}
+
 nav ul {
   display: flex;
   margin-bottom: -50px;
@@ -45,6 +75,15 @@ nav a{
   display:block;
   padding: 20px 35px;
   flex: 1 1 70%;
+  color: black;
+
+}
+
+nav a:visited{
+  display:block;
+  padding: 20px 35px;
+  flex: 1 1 70%;
+  color: black;
 }
 
 nav li {
@@ -53,17 +92,12 @@ nav li {
   display:block;
   border-radius: 10px;
   text-align: center;
-
+  color: black;
 }
 
 nav li:hover {
   background-color: #C9CBA3;
   color: #333;
-}
-
-
-nav a:visited {
-  color: black;
 }
 
 #banner {
@@ -73,28 +107,6 @@ nav a:visited {
   margin: 0 auto;
   opacity: .8;
   margin: 30px;
-}
-
-h1 {
-  font-family: Pacifico, cursive;
-  font-size: 130px;
-  line-height: 270px;
-  text-align: center;
-  color: darkseagreen;
-  text-shadow: 1px 2px black;
-  text-decoration: none;
-
-}
-
-h2 {
-  font-size: 25px;
-  text-transform:uppercase;
-  font-weight: bold;
-  letter-spacing:3px;
-}
-
-a{
-  text-decoration: none;
 }
 
 .photo {

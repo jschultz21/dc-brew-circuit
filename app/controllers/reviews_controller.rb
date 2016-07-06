@@ -11,6 +11,7 @@ def create
   @brewery = Brewery.find(params[:brewery_id])
   @beer = Beer.find(params[:beer_id])
   @review = @beer.reviews.create!(review_params)
+  @review.user = @current_user
   redirect_to brewery_beer_path(@brewery, @beer)
 end
 
@@ -42,7 +43,7 @@ end
 
 private
 def review_params
-  params.require(:review).permit(:author, :body)
+  params.require(:review).permit(:user_id, :body)
 
 end
 
