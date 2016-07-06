@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'users/new'
-resources :users
-resource :session
   resources :breweries do
     resources :beers do
       resources :reviews
