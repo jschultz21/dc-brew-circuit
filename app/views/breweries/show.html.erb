@@ -4,7 +4,13 @@
 <%= image_tag(@brewery.photo_url, class: "photo") %>
 
 <%=image_tag(@brewery.logo_img, class: "logo")%>
-<div class = "larger_text"><%=@brewery.description%></div>
+<div class = "larger_text"><%=@brewery.description%>
+
+<p>Address:     <a href="http://maps.google.com/?q=<%=@brewery.address %>">
+ <%=@brewery.address%></a></p>
+
+
+</div>
 
 
 
@@ -23,8 +29,3 @@
   </ul>
 
   <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>
-
-
-  <div class = "brewery_location">
-    <%=@brewery.address%>
-  </div>
