@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20160706193327) do
     t.string   "photo_url"
     t.string   "address"
     t.string   "logo_img"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "favorites", force: :cascade do |t|

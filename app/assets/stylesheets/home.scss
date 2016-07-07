@@ -1,19 +1,18 @@
 
-.quotes {
-  text-align: center;
-  font-size: 200px;
-  margin: 60px 15px 10px 15px;
-  letter-spacing: 2px;
+.featured{
+  text-align:center;
 }
 .assorted_breweries {
   display:flex;
 }
 
 .intro{
-  display:block;
+  margin: 30px;
+}
+
+.intro p{
   text-align:center;
   font-size:20px;
-  margin: 30px;
 }
 
 .random_brewery {
@@ -36,5 +35,5 @@
 }
 
 .homepage_photo {
-  width: 370px;
+  width: 380px;
 }

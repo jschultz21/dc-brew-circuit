@@ -1,18 +1,30 @@
 <h2> <%=@brewery.name%></h2>
+
+
 <%= image_tag(@brewery.photo_url, class: "photo") %>
 
-<h2> Beers by <%=@brewery.name%>  </h2>
+<%=image_tag(@brewery.logo_img, class: "logo")%>
+<div class = "larger_text"><%=@brewery.description%></div>
+
+
+
+<h3> Beers by <%=@brewery.name%>  </h3>
 <ul>
   <% @brewery.beers.each do |beer| %>
 
-  <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %><h3>
+  <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <h3>
     <ul>
-      <li> <%= beer.style %> </li>
+      <li> Style: <%= beer.style %> </li>
       <li>  ABV: <%= beer.abv %></li>
-      <li> <% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%></li>
+      <li> <% if current_user%><% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%><%end%></li>
     </ul>
 
     <% end %>
   </ul>
 
-  <h4><%= link_to "Tried another " + @brewery.name + " beer? Add it here!", new_brewery_beer_path(@brewery) if current_user%></h4>
+  <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>
+
+
+  <div class = "brewery_location">
+    <%=@brewery.address%>
+  </div>

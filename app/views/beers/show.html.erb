@@ -3,31 +3,39 @@
 <p>
   <%if current_user%>
   <% unless current_user.favorite_beers.exists?(id: @beer.id) -%>
-  <%= link_to 'Add to favorites', favorite_beers_path(beer_id: @beer), method: :post %>
+  <%= link_to 'FAVORITE!', favorite_beers_path(beer_id: @beer), method: :post, class: "fav"%>
   <% else %>
-  <%= link_to 'Remove from favorites', favorite_beer_path(@beer), method: :delete %>
+  <%= link_to 'NON-FAVORITE!', favorite_beer_path(@beer), method: :delete, class: "no_fav"%>
   <% end %>
   <% end %>
 </p>
 
-<h3> BEER REVIEWS </h3>
+<div class = "beer_reviews">
+  <h3> BEER REVIEWS </h3>
 
-<% if @beer.reviews.any? %>
-<% @beer.reviews.each do |review| %>
-<div class = "review">
-  <p class = "timestamp">By <%= review.user.name%> at <%= review.created_at%> </p>
-  <p><%= review.body%></p>
-  <% if review.user == current_user %>
-  <li> <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} %>  </div>
+  <% if @beer.reviews.any? %>
+  <% @beer.reviews.each do |review| %>
+  <div class = "review">
+    <p class = "timestamp">By <%= review.user.name%> at <%= review.created_at%> </p>
+    <p><%= review.body%></p>
+    <% if review.user == current_user %>
+    <li> <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} %>  </div>
 
-    <% end%>
-    <% end%>
-  <% else %>
-  <p> No Reviews Yet!</p>
-  <% end %>
-
-  <% if current_user %>
-
-  <%= render 'reviews/review_form' %>
-
-  <% end %>
+      <% end%>
+      <% end%>
+      <% else %>
+      <p> No Reviews Yet!</p>
+      <% end %>
+    </div>
+    <div class = "form">
+      <% if current_user %>
+      <h3> Write a Review of the <%=@beer.name%>:</h3>
+      <%= render 'reviews/review_form' %>
+      <% end %>
+    </div>
+    <p><% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <% end %>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>DC Brew Circuit</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<header>
+  <header>
     <nav class="main-nav">
       <ul>
         <li><a href = "/"> Home </a></li>
@@ -31,29 +31,29 @@
         <p class = "edit"><%= link_to 'Edit Profile', edit_user_registration_path%> </p>
         <%end%>
 
-      <p><% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-    </p>
-    </div>
-</header>
-  <div id = "banner"><a href = "/"><h1>DC Brew Circuit</h1></a></div>
+        <p><% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+        </p>
+      </div>
+    </header>
+    <div id = "banner"><a href = "/"><h1>DC Brew Circuit</h1></a></div>
 
-  <%= yield %>
+    <%= yield %>
 
-<footer>
-  <div class = "quotes">
-    <% @quotes.each do |quote| %>
-    <blockquote>
-      <%= quote.text %> <br>
-      -<%= quote.author %> <br>
-    </blockquote>
-    <%end%>
-  </div>
-</footer>
+    <footer>
+      <div class = "quotes">
+        <% @quotes.each do |quote| %>
+        <blockquote>
+          <%= quote.text %> <br>
+          -<%= quote.author %> <br>
+        </blockquote>
+        <%end%>
+      </div>
+    </footer>
 
-</body>
-</html>
+  </body>
+  </html>

@@ -1,3 +1,10 @@
-<h2> Add a new beer to <%=@brewery.name%>!</h2>
+<h2>New <%=@brewery.name%> beer:</h2>
 
 <%= render 'form' %>
+
+<p><% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>

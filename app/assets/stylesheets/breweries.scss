@@ -1,8 +1,16 @@
-.photo{
-  height: 250px;
+
+.photo {
+  width: 390px;
   float:right;
+  border-radius: 10px;
+  margin:0px 15px;
 }
 
+.logo{
+  width:140px;
+  margin: 0 20px 20px 0px;
+  float: left;
+}
 .breweries{
   padding:0 85px;
 }
@@ -14,5 +22,18 @@ font-size:25px;
 
 h2 {
   display: block;
-  padding-left: 45px;
+  text-transform:capitalize;
+}
+
+.fav {
+  color:green;
+}
+
+.no_fav {
+  color:red;
+}
+
+.larger_text{
+  font-size:18px;
+  text-align:justify;
 }
