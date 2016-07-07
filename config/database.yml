@@ -84,12 +84,13 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  database: db/production.sqlite3
+  database: dc-brew-circuit_production
+  username: dc-brew-circuit
+  password: <%= ENV['DC-BREW-CIRCUIT_DATABASE_PASSWORD'] %>
+
 
 
 production:
   <<: *default
-  database: dc-brew-circuit_production
-  username: dc-brew-circuit
-  password: <%= ENV['DC-BREW-CIRCUIT_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: db/production.sqlite3

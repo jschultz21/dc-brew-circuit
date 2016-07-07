@@ -3,8 +3,7 @@ Rails.application.configure do
 
   # config/env.yml
 
-  # Just a test value to show overwriting
-  a: "hello"
+
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
