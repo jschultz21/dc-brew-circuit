@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# .gitignore
+
+# Ignore the environment-specific YAML files
+/config/env.*.yml

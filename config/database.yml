@@ -14,6 +14,9 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+
+
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -78,6 +81,13 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+production:
+  <<: *default
+  adapter: postgresql
+  database: db/production.sqlite3
+
+
 production:
   <<: *default
   database: dc-brew-circuit_production

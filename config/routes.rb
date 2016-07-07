@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   get 'users/new'
   resources :breweries do
-      resources :beers do
-        resources :reviews
-        member do
-          post 'add_favorite'
-          delete 'remove_favorite'
+    resources :beers do
+      resources :reviews
+      member do
+        post 'add_favorite'
+        delete 'remove_favorite'
       end
     end
   end
-
-root 'home#index'
+  
+  root 'home#index'
 
 end
