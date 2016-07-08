@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 
+gem 'pg', '0.18.1', group: :production
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
@@ -31,7 +32,7 @@ gem 'devise'
 
 gem 'untappd'
 
-gem 'pg'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
