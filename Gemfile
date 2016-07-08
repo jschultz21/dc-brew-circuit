@@ -32,6 +32,7 @@ gem 'devise'
 
 gem 'untappd'
 
+ruby '2.3.1'
 
 
 # Use ActiveModel has_secure_password
