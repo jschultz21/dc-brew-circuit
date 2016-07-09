@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          has_many :reviews
          has_many :beers
 
-         has_many :saves
-         has_many :saved_breweries, through: :saves, source: :saved, source_type: 'Brewery'
+         has_many :adds
+         has_many :added_breweries, through: :adds, source: :added, source_type: 'Brewery'
 
 
          has_many :favorites

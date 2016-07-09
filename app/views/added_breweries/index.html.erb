@@ -1,0 +1,13 @@
+<h2> Your Current Brewery Route:</h2>
+
+<% if current_user.added_breweries.exists? -%>
+<ul class = "added_breweries"><% @breweries.each do |brewery| %>
+  <li><div class = "fav_brewery">
+    <li>  <a href="/breweries/<%= brewery.id %>"> <%= brewery.name %> - <%brewery.address%></li>
+    </a>
+  </div></li>
+  <%end%>
+</ul>
+<%else%>
+<h3>There are no breweries on your route at this time. Fix this by clicking the "(+) add to route" next to the Brewery page headings!</h3> <%=link_to "Back to breweries", breweries_path%>>
+<%end%>

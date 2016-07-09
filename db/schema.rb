@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708174538) do
+ActiveRecord::Schema.define(version: 20160709020339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adds", force: :cascade do |t|
+    t.integer  "brewery_id"
+    t.integer  "user_id"
+    t.integer  "added_id"
+    t.string   "added_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "adds", ["added_type", "added_id"], name: "index_adds_on_added_type_and_added_id", using: :btree
+  add_index "adds", ["user_id"], name: "index_adds_on_user_id", using: :btree
 
   create_table "beers", force: :cascade do |t|
     t.string   "name",       null: false
@@ -64,18 +76,6 @@ ActiveRecord::Schema.define(version: 20160708174538) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
-
-  create_table "saves", force: :cascade do |t|
-    t.integer  "brewery_id"
-    t.integer  "user_id"
-    t.integer  "saved_id"
-    t.string   "saved_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "saves", ["saved_type", "saved_id"], name: "index_saves_on_saved_type_and_saved_id", using: :btree
-  add_index "saves", ["user_id"], name: "index_saves_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

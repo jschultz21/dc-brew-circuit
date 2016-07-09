@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :favorite_beers, only: [:index, :create, :destroy]
-  resources :saved_breweries, only: [:index, :create, :destroy]
+  resources :added_breweries, only: [:index, :create, :destroy]
 
 
   devise_for :users, controllers: { registrations: "registrations" }

@@ -1,6 +1,5 @@
 class FavoriteBeersController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  # before_action :set_beer_and_brewery, except: [:index]
+  before_action :authenticate_user!
 
   def index
     @beers = current_user.favorite_beers
@@ -9,7 +8,9 @@ class FavoriteBeersController < ApplicationController
   def create
     @beer = Beer.find(params[:beer_id])
     @brewery = @beer.brewery
-    if Favorite.create(favorited: @beer, user: current_user)
+    @favorite = Favorite.create(favorited: @beer, user: current_user)
+    @favorite.beer_id = @beer.id
+      if @favorite.save
       redirect_to brewery_beer_path(@brewery, @beer), notice: 'Beer has been favorited'
     else
       redirect_to @beer
