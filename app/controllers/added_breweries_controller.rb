@@ -5,6 +5,7 @@ class AddedBreweriesController < ApplicationController
     @breweries = current_user.added_breweries
   end
 
+
   def create
     @brewery = Brewery.find(params[:brewery_id])
     @add = Add.create(added: @brewery, user: current_user)
