@@ -1,4 +1,23 @@
-<h2> <%=@brewery.name%></h2>
+<h2>
+  <%=@brewery.name%>
+  <%if current_user%>
+  <% unless current_user.saved_breweries.exists?(id: @brewery.id) %>
+  <%=link_to "(+ to route)", saved_breweries_path(brewery_id: @brewery), method: :post, class: "route"%>
+  <% else %>
+  <%=link_to "(- from route)", saved_brewery_path(@brewery), method: :delete, class: "no_route"%>
+  <% end %>
+  <% end %>
+
+
+
+</h2>
+
+<p><% if notice %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+<p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 
 <%= image_tag(@brewery.photo_url, class: "photo") %>
@@ -6,26 +25,25 @@
 <%=image_tag(@brewery.logo_img, class: "logo")%>
 <div class = "larger_text"><%=@brewery.description%>
 
-<p>Address:     <a href="http://maps.google.com/?q=<%=@brewery.address %>">
- <%=@brewery.address%></a></p>
+  <p>Address:     <a href="http://maps.google.com/?q=<%=@brewery.address %>">
+    <%=@brewery.address%></a></p>
 
 
-</div>
+  </div>
 
 
+  <h3> Beers by <%=@brewery.name%></h3>
+  <ul>
+    <% @brewery.beers.each do |beer| %>
 
-<h3> Beers by <%=@brewery.name%>  </h3>
-<ul>
-  <% @brewery.beers.each do |beer| %>
+    <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <h3>
+      <ul>
+        <li> Style: <%= beer.style %> </li>
+        <li>  ABV: <%= beer.abv %></li>
+        <li> <% if current_user%><% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%><%end%></li>
+      </ul>
 
-  <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <h3>
-    <ul>
-      <li> Style: <%= beer.style %> </li>
-      <li>  ABV: <%= beer.abv %></li>
-      <li> <% if current_user%><% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%><%end%></li>
+      <% end %>
     </ul>
 
-    <% end %>
-  </ul>
-
-  <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>
+    <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>

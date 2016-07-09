@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706193327) do
+ActiveRecord::Schema.define(version: 20160708174538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(version: 20160706193327) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+  create_table "saves", force: :cascade do |t|
+    t.integer  "brewery_id"
+    t.integer  "user_id"
+    t.integer  "saved_id"
+    t.string   "saved_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "saves", ["saved_type", "saved_id"], name: "index_saves_on_saved_type_and_saved_id", using: :btree
+  add_index "saves", ["user_id"], name: "index_saves_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

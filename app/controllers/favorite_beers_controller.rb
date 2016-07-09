@@ -23,6 +23,4 @@ class FavoriteBeersController < ApplicationController
     Favorite.where(favorited_id: @beer.id, user_id: current_user.id).first.destroy
     redirect_to brewery_beer_path(@brewery, @beer), notice: 'Beer is no longer in favorites'
   end
-
-
 end
