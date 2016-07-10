@@ -21,14 +21,14 @@
   <%=image_tag(@brewery.logo_img, class: "logo")%>
   <div class = "larger_text"><%=@brewery.description%>
     <p>
-      Address: <a href="http://maps.google.com/?q=<%=@brewery.address %>"><%=@brewery.address%></a>
+      Address: <a href="https://maps.google.com/?q=<%=@brewery.address %>"><%=@brewery.address%></a>
     </p>
     <p>
       Coordinates: <%= @brewery.latitude %> <%= @brewery.longitude %>
     </p>
     </div>
 
-    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@brewery.latitude},#{@brewery.longitude}&zoom=13&size=300x300&maptype=roadmap&markers=&markers=#{@brewery.latitude},#{@brewery.longitude}&key=AIzaSyCxxjJpNla-0b8zzZ6pVKVnH4-ftC-2tnE",
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@brewery.latitude},#{@brewery.longitude}&zoom=13&size=300x300&maptype=roadmap&markers=&markers=#{@brewery.latitude},#{@brewery.longitude}&key=AIzaSyCxxjJpNla-0b8zzZ6pVKVnH4-ftC-2tnE",
     class: 'map', alt: "#{@brewery.name} on the map"%>
 
     <h3> Beers by <%=@brewery.name%></h3>
