@@ -7,9 +7,18 @@
 }
 .photo_and_map {
   width: 390px;
+  height:500px;
   float:right;
   border-radius: 10px;
-  margin:0px 15px;
+  margin:10px 15px;
+}
+.photo{
+  max-width: 390px;
+}
+
+.map{
+  margin: 20px;
+  float:right;
 }
 
 .logo{
@@ -31,12 +40,6 @@ font-size:25px;
 .photo{
   height: 250px;
   float:right;
-}
-
-.map{
-  margin: 20px;
-  float:right;
-
 }
 
 h2 {
