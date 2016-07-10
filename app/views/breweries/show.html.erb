@@ -2,6 +2,16 @@
   <%=@brewery.name%>
   <p>Coordinates: <%= @brewery.latitude %> <%= @brewery.longitude %></p>
 
+  <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@brewery.latitude},#{@brewery.longitude}&markers=#{@brewery.latitude},#{@brewery.longitude}&zoom=7&size=640x400&key=AIzaSyCxxjJpNla-0b8zzZ6pVKVnH4-ftC-2tnE",
+              class: 'img-fluid img-rounded', alt: "#{@brewery.name} on the map"%>
+
+
+              <div class="card">
+                <div class="card-block">
+                  <div id="map"></div>
+                </div>
+              </div>
+
   <%if current_user%>
   <% unless current_user.added_breweries.exists?(id: @brewery.id) %>
   <%=link_to "(+) to route", added_breweries_path(brewery_id: @brewery), method: :post, class: "route"%>
