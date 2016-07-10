@@ -77,12 +77,14 @@ h3 {
   font-weight: bold;
 }
 
+header {
+  margin: 40px 0px;
+}
+
 nav ul {
-  margin-top: 20px;
   display: flex;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 nav a{
