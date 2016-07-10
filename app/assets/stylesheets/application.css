@@ -112,7 +112,7 @@ nav li:hover {
 
 #banner {
   border-radius: 130px;
-  background-image: url("banner.jpg");
+  background-image: url('banner.jpg');
   height:250px;
   margin: 0 auto;
   opacity: .7;
