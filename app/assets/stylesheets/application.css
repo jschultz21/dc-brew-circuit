@@ -138,3 +138,10 @@ nav li:hover {
   color: darkslategray;
   font-size:25px;
 }
+
+.quotes {
+  text-align: center;
+  font-size: 20px;
+  margin: 60px 15px 10px 15px;
+  letter-spacing: 2px;
+}
