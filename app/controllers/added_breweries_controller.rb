@@ -3,6 +3,7 @@ class AddedBreweriesController < ApplicationController
 
   def index
     @breweries = current_user.added_breweries
+
   end
 
 

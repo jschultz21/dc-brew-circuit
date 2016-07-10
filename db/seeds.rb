@@ -27,7 +27,7 @@ quotes = Quote.create! ([
   {text: '"He was a wise man who invented beer."', author: 'Plato'},
   {text: '“Beer, if drunk in moderation, softens the temper, cheers the spirit and promotes health.”',author: 'Thomas Jefferson'},
   {text: '“In a study, scientists report that drinking beer can be good for the liver. I’m sorry, did I say ‘scientists’? I meant Irish people.”', author: 'Tina Fey'},
-  {text: '“Most people hate the taste of beer—to begin with. It is, however, a prejudice.”', author: 'Winston Churchill'}
+  {text: '“Most people hate the taste of beer—to begin with. It is, however, a prejudice.”', author: 'Winston Churchill'},
   {text: '“Beer, it’s the best damn drink in the world.”', author: 'Jack Nicholson'},
   {text: '“There is no such thing as a bad beer. It’s that some taste better than others.”', author: 'Bill Carter'},
   {text: '“Beer’s intellectual. What a shame so many idiots drink it.”', author: 'Ray Bradbury'},

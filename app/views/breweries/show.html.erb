@@ -7,7 +7,10 @@
   <%=link_to "(-) from route", added_brewery_path(@brewery), method: :delete, class: "no-route"%>
   <% end %>
   <% end %>
+<<<<<<< HEAD
 
+=======
+>>>>>>> add-to-route
 </h2>
 
 <p><% if notice %>
@@ -21,24 +24,33 @@
 
   <%=image_tag(@brewery.logo_img, class: "logo")%>
   <div class = "larger_text"><%=@brewery.description%>
+<<<<<<< HEAD
     <p>Address:     <a href="http://maps.google.com/?q=<%=@brewery.address %>">
       <%=@brewery.address%></a></p>
       coordinates: 
+=======
+    <p>
+      Address: <a href="http://maps.google.com/?q=<%=@brewery.address %>"><%=@brewery.address%></a>
+    </p>
+    <p>
+      Coordinates: <%= @brewery.latitude %> <%= @brewery.longitude %>
+    </p>
+>>>>>>> add-to-route
     </div>
 
+    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@brewery.latitude},#{@brewery.longitude}&zoom=13&size=300x300&maptype=roadmap&markers=&markers=#{@brewery.latitude},#{@brewery.longitude}&key=AIzaSyCxxjJpNla-0b8zzZ6pVKVnH4-ftC-2tnE",
+    class: 'map', alt: "#{@brewery.name} on the map"%>
 
     <h3> Beers by <%=@brewery.name%></h3>
     <ul>
       <% @brewery.beers.each do |beer| %>
-
       <h3><%= link_to beer.name, brewery_beer_path(@brewery, beer) %> <h3>
         <ul>
           <li> Style: <%= beer.style %> </li>
           <li>  ABV: <%= beer.abv %></li>
           <li> <% if current_user%><% if beer.user == current_user %><%= link_to "edit", edit_brewery_beer_path(@brewery, beer) %> | <%= link_to "delete", [beer.brewery, beer], method: :delete, data:{confirm: 'are you sure?'}%><%end%><%end%></li>
         </ul>
-
         <% end %>
       </ul>
 
-      <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>
+    <h3><%= link_to "Add another " + @brewery.name + " beer here!", new_brewery_beer_path(@brewery) if current_user%></h3>
