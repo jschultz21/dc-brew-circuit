@@ -6,7 +6,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '801d77fad37e0c0feecdea329c1e16c6b49cfe3ee3482027d61f0dc59f93d749a2483af6d37881db57a7fdd0c585c16ea2b782b2c418d035a30e81567965d167'
+  config.secret_key = '801d77fad37e0c0feecdea329c1e16c6b49cfe3ee3482027d61f0dc59f93d749a2483af6d37881db57a7fdd0c585c16ea2b782b2c418d035a30e81567965d167'
+
+
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -195,6 +197,8 @@ Devise.setup do |config|
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
+
+
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
