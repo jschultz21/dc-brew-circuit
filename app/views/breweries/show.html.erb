@@ -1,5 +1,7 @@
 <h2>
   <%=@brewery.name%>
+  <p>Coordinates: <%= @brewery.latitude %> <%= @brewery.longitude %></p>
+
   <%if current_user%>
   <% unless current_user.added_breweries.exists?(id: @brewery.id) %>
   <%=link_to "(+) to route", added_breweries_path(brewery_id: @brewery), method: :post, class: "route"%>

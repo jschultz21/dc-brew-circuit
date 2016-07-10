@@ -30,6 +30,9 @@ gem 'pry'
 
 gem 'devise'
 
+gem 'geocoder'
+
+
 gem 'untappd'
 
 ruby '2.3.1'
