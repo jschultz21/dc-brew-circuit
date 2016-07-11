@@ -17,7 +17,6 @@ class FavoriteBeersController < ApplicationController
     end
   end
 
-
   def destroy
     @beer = Beer.find(params[:id])
     @brewery = @beer.brewery

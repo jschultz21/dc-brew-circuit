@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
          has_many :adds
          has_many :added_breweries, through: :adds, source: :added, source_type: 'Brewery'
 
-
          has_many :favorites
          has_many :favorite_beers, through: :favorites, source: :favorited, source_type: 'Beer'
 end

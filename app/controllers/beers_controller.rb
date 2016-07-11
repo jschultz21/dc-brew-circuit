@@ -37,7 +37,6 @@ class BeersController < ApplicationController
     end
   end
 
-
   def update
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.find(params[:id])
@@ -54,7 +53,6 @@ class BeersController < ApplicationController
     end
   end
 
-
   def destroy
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.find(params[:id])
@@ -65,7 +63,6 @@ class BeersController < ApplicationController
       redirect_to (root_path notice: "You cannot delete this beer") and return
     end
   end
-
 
   private
   def beer_params
