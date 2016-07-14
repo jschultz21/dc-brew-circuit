@@ -1,3 +1,4 @@
+<!-- NHO: careful of indentation  -->
 <h2>
   <%=@brewery.name%>
   <%if current_user%>
@@ -18,6 +19,7 @@
 
 <div class = "photo_and_map">
   <%= image_tag(@brewery.photo_url, class: "photo") %>
+  <!-- NHO: recommend you use a gem like Figaro or Dotenv to hide your API key! -->
   <%= image_tag "//maps.googleapis.com/maps/api/staticmap?center=#{@brewery.latitude},#{@brewery.longitude}&zoom=13&size=300x300&maptype=roadmap&markers=&markers=#{@brewery.latitude},#{@brewery.longitude}&key=AIzaSyCxxjJpNla-0b8zzZ6pVKVnH4-ftC-2tnE",
   class: 'map', alt: "#{@brewery.name} on the map"%>
 </div>

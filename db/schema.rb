@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160710140106) do
   enable_extension "plpgsql"
 
   create_table "adds", force: :cascade do |t|
+    # NHO: if you're using polymorphic relationships, don't think you need these foreign keys
     t.integer  "brewery_id"
     t.integer  "user_id"
     t.integer  "added_id"
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160710140106) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    # NHO: if you're using polymorphic relationships, don't think you need these foreign keys
     t.integer  "beer_id"
     t.integer  "user_id"
     t.integer  "favorited_id"
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160710140106) do
   create_table "reviews", force: :cascade do |t|
     t.string   "body",       null: false
     t.integer  "beer_id"
-    t.integer  "brewery_id"
+    t.integer  "brewery_id" # NHO: don't think this is being used currently
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"

@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     else
       redirect_to(brewery_beer_path(@brewery,@beer), notice: "Can't submit an empty review!") and return
     end
+    # NHO: this block is unnecessary due to line 11
     unless current_user == @review.user
       redirect_to(root_path, notice: "Sign in to add a review") and return
     end
@@ -28,6 +29,7 @@ class ReviewsController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.find(params[:beer_id])
     @review = Review.find(params[:id])
+    # NHO: this block is unnecessary due to line 28
     unless current_user == @review.user
       redirect_to(root_path, notice: "You cannot edit this review") and return
     end
@@ -44,6 +46,7 @@ class ReviewsController < ApplicationController
     else
       redirect_to(brewery_beer_path(@brewery,@beer), notice: "Can't submit an empty review!") and return
     end
+    # NHO: this block is unnecessary due to line 39
     unless current_user == @review.user
       redirect_to(root_path, notice: "Sign in to add a review") and return
     end
@@ -54,8 +57,8 @@ class ReviewsController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to brewery_beer_path(@brewery, @beer)
-    unless current_user == @review.user
+    redirect_to brewery_beer_path(@brewery, @beer)    
+    unless current_user == @review.user # NHO: need to move this block to the top of this method
       redirect_to(root_path, notice: "You cannot delete this review") and return
     end
   end

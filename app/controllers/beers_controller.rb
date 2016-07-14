@@ -1,6 +1,7 @@
 class BeersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-
+  # NHO: what lines are repetitive in this controller?
+  # You could use a before_action to DRY up the code by writing a method like find_brewery
   def show
     @brewery = Brewery.find(params[:brewery_id])
     @beer = Beer.find(params[:id])
@@ -47,7 +48,8 @@ class BeersController < ApplicationController
       flash[:alert] = "Please include the beer's name and style"
       redirect_to edit_brewery_beer_path
     end
-    unless current_user == @beer.user
+    # NHO: careful of the order here, currently this will still destroy the beer, and then redirect them
+    unless current_user == @beer.user# NHO: we need to move this block to the first line of this action
       redirect_to(root_path, notice: "You cannot edit this beer") and return
       @brewery = Brewery.find(params[:brewery_id])
     end
@@ -59,7 +61,8 @@ class BeersController < ApplicationController
     @beer.destroy
     redirect_to @brewery
 
-    unless current_user.id == @beer.user.id
+    # NHO: careful of the order here, currently this will still destroy the beer, and then redirect them
+    unless current_user == @beer.user # NHO: we need to move this block to the first line of this action
       redirect_to (root_path notice: "You cannot delete this beer") and return
     end
   end
@@ -67,6 +70,5 @@ class BeersController < ApplicationController
   private
   def beer_params
     params.require(:beer).permit(:name, :style, :abv, :photo_url, :brewery_id)
-
   end
 end

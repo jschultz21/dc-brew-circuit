@@ -40,6 +40,8 @@ quotes = Quote.create! ([
   ])
 
 
+# NHO: While this works, I think you could reduce complexity significantly by just using
+# active record helpers and bulk creation
   beer_data.each_pair do |brewery_name, beers|
     info = brewery_data[brewery_name]
     current_brewery = Brewery.create!({

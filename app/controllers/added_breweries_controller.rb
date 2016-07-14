@@ -8,11 +8,11 @@ class AddedBreweriesController < ApplicationController
   def create
     @brewery = Brewery.find(params[:brewery_id])
     @add = Add.create(added: @brewery, user: current_user)
-    @add.brewery_id = @brewery.id
+    @add.brewery_id = @brewery.id # NHO: is this line necessary?
     if @add.save
       redirect_to @brewery, notice: 'added to your route!'
     else
-      redirect_to @brewery
+      redirect_to @brewery # NHO: could display a notice saying it was unsuccessful...
     end
   end
 

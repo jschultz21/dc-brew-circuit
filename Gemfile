@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+# ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 
-gem 'pg', '0.18.1', group: :production
+gem 'pg', '0.18.1', group: :production # NHO: I'm not sure you want this gem only for production
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
@@ -33,12 +33,14 @@ gem 'devise'
 
 gem 'geocoder'
 
-
+# NHO: I think its awesome that you're planning on using these custom gems / but until you need them I might use leave
+# them on a separate branch to reduce dependencies
 gem 'untappd'
 
 
 gem 'underscore-rails'
 
+gem 'rails-erd' # NHO: adding this gem just to generate an erd from current domain model, feel free to remove
 
 gem 'gmaps4rails'
 

@@ -16,11 +16,12 @@
   <% if @beer.reviews.any? %>
   <% @beer.reviews.each do |review| %>
   <div class = "review">
+    <!-- NHO: could be a great usecase for Rails' helper method: time_ago_in_words   -->
     <p class = "timestamp">By <%= review.user.name%> at <%= review.created_at%> </p>
     <p><%= review.body%></p>
     <% if review.user == current_user %>
     <li> <%= link_to "edit", edit_brewery_beer_review_path(@brewery, @beer, review) %> | <%= link_to "delete", brewery_beer_review_path(@brewery, @beer, review), method: :delete, data:{confirm: 'are you sure?'} %>  </div>
-
+      <!-- NHO: Careful of your indentation as it can make it harder to maintain, especially view code  -->
       <% end%>
       <% end%>
       <% else %>
