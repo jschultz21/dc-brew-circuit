@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: { registrations: "registrations" }
-  get 'users/new'
+  get 'users/new' # NHO: is this route necessary?
   resources :breweries do
     resources :beers do
       resources :reviews
